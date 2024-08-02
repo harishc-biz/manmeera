@@ -21,13 +21,18 @@ jobs:
       with:
         node-version: 20.x
         cache: 'npm'
+
+    - name: Azure Login
+      uses: Azure/login@v1.5.1
+      with:
+        client-id: '5c95b4b6-7bc9-4a27-aa89-39011d0e865b'
+        tenant-id: '39bb0b44-488e-4fdd-b4e3-27557a7d3f89'
+        subscription-id: '7988383d-5947-4e42-bede-64c7eb8aa983'
+          
+    
     - run: npm ci
     - run: npm run build 
 
-    
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_LOGIN }}
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v3.0.1
       with:
