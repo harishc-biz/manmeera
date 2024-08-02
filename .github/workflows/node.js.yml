@@ -27,7 +27,7 @@ jobs:
         cache: 'npm'
 
     - name: Azure Login
-      uses: Azure/login@v2.1.0
+      uses: Azure/login@v2
       with:
         client-id: '5c95b4b6-7bc9-4a27-aa89-39011d0e865b'
         tenant-id: '39bb0b44-488e-4fdd-b4e3-27557a7d3f89'
