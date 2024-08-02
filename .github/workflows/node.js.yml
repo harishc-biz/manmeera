@@ -23,3 +23,17 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build 
+      working-directory:  'my-app'
+
+    
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_LOGIN }}
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v3.0.1
+      with:
+        app-name: 'manmeera'
+        package: 'my-app/dist'
+        
+    
+  
