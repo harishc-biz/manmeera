@@ -32,11 +32,7 @@ jobs:
       uses: Azure/cli@v2.0.0
       with:
     
-        inlineScript: az login \
-                      --service-principal \
-                      -t ${{ secrets.TENANT_ID }} \
-                      -u ${{ secrets.CLIENT_ID }} \
-                      -p ${{ secrets.SECRET_ID }}
+        inlineScript: az login --service-principal -t ${{ secrets.TENANT_ID }} -u ${{ secrets.CLIENT_ID }} -p ${{ secrets.SECRET_ID }}
                       
     - run: npm ci
 
