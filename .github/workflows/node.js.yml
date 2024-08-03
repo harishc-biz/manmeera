@@ -24,9 +24,7 @@ jobs:
         cache: 'npm'
 
     - name: Azure login
-      uses: Azure/cli@v2.0.0
-      with:
-        inlineScript: az login --service-principal -t ${{ secrets.TENANT_ID }} -u ${{ secrets.CLIENT_ID }} -p ${{ secrets.SECRET_ID }}
+      run: az login --service-principal -u ${{ secrets.CLIENT_ID }} -p ${{ secrets.SECRET_ID }} --tenant ${{ secrets.TENANT_ID }}
                       
     - run: npm ci
 
@@ -36,7 +34,4 @@ jobs:
       run: ls -la ./dist
 
     - name: Deploy to Azure WebApp
-      uses: Azure/webapps-deploy@v3.0.1
-      with:
-        app-name: 'manmeera'
-        package: './dist'
+      run: az webapp deploy --resource-group <your-resource-group> --name manmeera --src-path ./dist
