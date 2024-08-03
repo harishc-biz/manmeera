@@ -34,10 +34,10 @@ jobs:
     
         inlineScript: az login \
                       --service-principal \
-                      -t 39bb0b44-488e-4fdd-b4e3-27557a7d3f89 \
-                      -u 5c95b4b6-7bc9-4a27-aa89-39011d0e865b \
-                      -p Mt18Q~pX8j2tLj_W464VsWA~NdzLrjzizMOL.dat
-   
+                      -t ${{ secrets.TENANT_ID }} \
+                      -u ${{ secrets.CLIENT_ID }} \
+                      -p ${{ secrets.SECRET_ID }}
+                      
     - run: npm ci
 
     - run: npm run build 
