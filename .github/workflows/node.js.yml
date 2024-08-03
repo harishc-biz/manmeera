@@ -40,4 +40,4 @@ jobs:
       run: ls -la
 
     - name: Deploy to Azure WebApp
-      run: az webapp deploy --resource-group your-actual-resource-group --name manmeera --src-path dist.zip
+      run: az webapp deploy --resource-group manmeera --name manmeera --src-path dist.zip
