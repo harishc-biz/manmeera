@@ -33,11 +33,7 @@ jobs:
     - name: List Build Directory
       run: ls -la ./dist
 
-    - name: Zip Build Directory
-      run: zip -r dist.zip ./dist
-
-    - name: List Working Directory
-      run: ls -la
-
     - name: Deploy to Azure WebApp
-      run: az webapp deploy --resource-group manmeera --name manmeera --src-path dist.zip
+      run: |
+        az webapp up --name manmeera --resource-group manmeera --location South India  --html
+
